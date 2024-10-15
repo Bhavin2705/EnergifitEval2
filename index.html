@@ -9,8 +9,11 @@
     <link rel="stylesheet" href="./Styles/LightMode.css" id="lightModeStylesheet">
     <link rel="stylesheet" href="./Styles/Darkmode.css" id="darkModeStylesheet" disabled>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
     <title>Energifit</title>
 </head>
 
@@ -350,143 +353,259 @@
     </section>
 
 
+    <!-- Testimonials Section -->
 
-    <section id="contact-us">
-        <div class="contact-container">
-            <div class="contact-map">
-                <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.896235060362!2d75.57444827506059!3d31.306612957672854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5baae25572cb%3A0x7f5d5f0b435b45a5!2sGold's%20Gym!5e0!3m2!1sen!2sin!4v1724331243036!5m2!1sen!2sin"
-                allowfullscreen="" loading="lazy"></iframe>
+    <section class="testimonial-area">
+        <div class="container">
+            <div class="sec-title">
+                <h2>Our Testimonials</h2>
+                <p>What clients say about us?</p>
             </div>
-            <div class="contact-form">
-                <h2>Contact Us</h2>
-                <p>Feel free to get in touch with us for any inquiries or feedback.</p>
-                <form>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+
+            <div class="testimonial-content owl-carousel">
+                <div class="single-testimonial">
+                    <p>"Energifit has completely changed my approach to fitness. The trainers are incredibly supportive,
+                        and I've seen significant progress in just a few months!"</p>
+                    <div class="client-info">
+                        <div class="client-pic">
+                            <a href="#">
+                                <img src="1.jpg" alt="client1">
+                            </a>
+                        </div>
+                        <div class="client-details">
+                            <h6>Sarah Thompson</h6>
+                            <span>Fitness Enthusiast</span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="single-testimonial">
+                    <p>"I was hesitant to join a gym, but Energifit made me feel welcome from day one. The community is
+                        amazing, and I've made friends while achieving my goals!"</p>
+                    <div class="client-info">
+                        <div class="client-pic">
+                            <a href="#">
+                                <img src="1.jpg" alt="client2">
+                            </a>
+                        </div>
+                        <div class="client-details">
+                            <h6>David Martinez</h6>
+                            <span>Beginner</span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <div class="single-testimonial">
+                    <p>"Energifit’s online classes are fantastic! I can work out at my convenience, and the trainers
+                        provide excellent guidance and motivation." </p>
+                    <div class="client-info">
+                        <div class="client-pic">
+                            <a href="#">
+                                <img src="1.jpg" alt="client3">
+                            </a>
+                        </div>
+                        <div class="client-details">
+                            <h6>Jessica Wong</h6>
+                            <span>Busy Professional</span>
+                        </div>
                     </div>
-                    <button type="submit" class="site-btn sb-gradient">Send Message</button>
-                </form>
+                </div>
+
+                <div class="single-testimonial">
+                    <p>"The nutritional advice I received from Energifit has been a game-changer. I've not only lost
+                        weight but also feel healthier and more energetic!"</p>
+                    <div class="client-info">
+                        <div class="client-pic">
+                            <a href="#">
+                                <img src="1.jpg" alt="client4">
+                            </a>
+                        </div>
+                        <div class="client-details">
+                            <h6>Michael Johnson</h6>
+                            <span>Weight Loss Success</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="single-testimonial">
+                    <p>"I never enjoyed working out until I joined Energifit. The variety of classes keeps me motivated,
+                        and I've never felt better!"</p>
+                    <div class="client-info">
+                        <div class="client-pic">
+                            <a href="#">
+                                <img src="1.jpg" alt="client5">
+                            </a>
+                        </div>
+                        <div class="client-details">
+                            <h6>Emily Davis</h6>
+                            <span>Fitness Newbie</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Footer -->
-    <section class="footer">
-        <div class="footer__container">
-          <!-- Footer Column 1: Logo and Tagline -->
-          <div class="footer__col">
-            <a href="#" class="footer__logo">
-              <img src="./assets/image.png" alt="Energifit logo" />
-            </a>
-            <p class="footer__tagline">Elevate your fitness journey with style and passion.</p>
-          </div>
-      
-          <!-- Footer Column 2: Contact Info -->
-          <div class="footer__col">
-            <h4>Contact Us</h4>
-            <ul class="footer__contact">
-              <li><a href="tel:+910987654321"><i class="ri-phone-line"></i> +91 0987654321</a></li>
-              <li><a href="https://goo.gl/maps/xyz"><i class="ri-map-pin-line"></i> New Delhi, India</a></li>
-              <li><a href="mailto:info@fitnesspoint.com"><i class="ri-mail-line"></i> info@fitnesspoint.com</a></li>
-            </ul>
-          </div>
-      
-          <!-- Footer Column 3: Quick Links -->
-          <div class="footer__col">
-            <h4>Quick Links</h4>
-            <ul class="footer__links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#programs">Programs</a>
-              <li><a href="#trainers">Trainers</li>
-              <li><a href="#contact-us">Contact</a></li>
-            </ul>
-          </div>
-      
-          <!-- Footer Column 4: Social Media Links -->
-          <div class="footer__col">
-            <h4>Follow Us</h4>
-            <ul class="footer__social-links">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </ul>
-          </div>
-        </div>
-      
-        <!-- Footer Bottom Bar -->
-        <div class="footer__bar">
-          Copyright © 2024 Energifit. All rights reserved.
-        </div>
-      </section>
-      
-      
+
+
+
+
+        <section id="contact-us">
+            <div class="contact-container">
+                <div class="contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.896235060362!2d75.57444827506059!3d31.306612957672854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5baae25572cb%3A0x7f5d5f0b435b45a5!2sGold's%20Gym!5e0!3m2!1sen!2sin!4v1724331243036!5m2!1sen!2sin"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="contact-form">
+                    <h2>Contact Us</h2>
+                    <p>Feel free to get in touch with us for any inquiries or feedback.</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="site-btn sb-gradient">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="footer">
+            <div class="footer__container">
+                <!-- Footer Column 1: Logo and Tagline -->
+                <div class="footer__col">
+                    <a href="#" class="footer__logo">
+                        <img src="./assets/image.png" alt="Energifit logo" />
+                    </a>
+                    <p class="footer__tagline">Elevate your fitness journey with style and passion.</p>
+                </div>
+
+                <!-- Footer Column 2: Contact Info -->
+                <div class="footer__col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer__contact">
+                        <li><a href="tel:+910987654321"><i class="ri-phone-line"></i> +91 0987654321</a></li>
+                        <li><a href="https://goo.gl/maps/xyz"><i class="ri-map-pin-line"></i> New Delhi, India</a></li>
+                        <li><a href="mailto:info@fitnesspoint.com"><i class="ri-mail-line"></i>
+                                info@fitnesspoint.com</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer Column 3: Quick Links -->
+                <div class="footer__col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#programs">Programs</a>
+                        <li><a href="#trainers">Trainers</li>
+                        <li><a href="#contact-us">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer Column 4: Social Media Links -->
+                <div class="footer__col">
+                    <h4>Follow Us</h4>
+                    <ul class="footer__social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="footer__bar">
+                Copyright © 2024 Energifit. All rights reserved.
+            </div>
+        </section>
 
 
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./Scripts/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            $('.classes-slider').owlCarousel({
-                items: 3, // Number of items to show
-                loop: true,
-                margin: 30,
-                nav: true,
-                dots: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    768: {
-                        items: 2
-                    },
-                    992: {
-                        items: 3
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="./Scripts/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('.classes-slider').owlCarousel({
+                    items: 3, // Number of items to show
+                    loop: true,
+                    margin: 30,
+                    nav: true,
+                    dots: true,
+                    autoplay: true,
+                    autoplayTimeout: 5000,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        768: {
+                            items: 2
+                        },
+                        992: {
+                            items: 3
+                        }
                     }
-                }
+                });
+
+                // Initialization for the trainers section
+                $('.trainers-slider').owlCarousel({
+                    items: 3, // Number of items to show
+                    loop: true,
+                    margin: 30,
+                    nav: true,
+                    dots: true,
+                    autoplay: true,
+                    autoplayTimeout: 5000,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        768: {
+                            items: 2
+                        },
+                        992: {
+                            items: 3
+                        }
+                    }
+                });
             });
 
-            // Initialization for the trainers section
-            $('.trainers-slider').owlCarousel({
-                items: 3, // Number of items to show
-                loop: true,
-                margin: 30,
-                nav: true,
-                dots: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    768: {
-                        items: 2
-                    },
-                    992: {
-                        items: 3
+
+            $(document).ready(function () {
+                $('.testimonial-content').owlCarousel({
+                    loop: true,
+                    nav: false,
+                    dots: true,
+                    margin: 50,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        768: {
+                            items: 1
+                        },
+                        992: {
+                            items: 2
+                        }
                     }
-                }
-            });
-        });
-    </script>
+                })
+            })
+        </script>
 
 </body>
 

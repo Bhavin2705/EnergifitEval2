@@ -576,6 +576,171 @@ p {
     }
     
     /* -----------------------------PRICING SECTION STYLES END-------------------------------- */
+
+
+
+
+    /* -----------------------------Testimonials SECTION STYLES Begin-------------------------------- */
+    .testimonial-area {
+        background-image: url('../assets/parallaximg.jpg'); /* Replace with your image path */
+        background-size: cover; /* Ensures the image covers the entire area */
+        background-position: center; /* Centers the background image */
+        background-attachment: fixed; /* Fixes the background for parallax effect */
+        background-repeat: no-repeat; /* Prevents the background from repeating */
+        position: relative;
+        z-index: 2;
+        padding: 40px 0; /* Increased padding to create more space */
+        color: #fff; /* Ensures text is visible on top of the background */
+    }
+    
+    .testimonial-area .container {
+        max-width: 1140px;
+        width: 100%;
+        margin: auto;
+        padding: 0 15px;
+    }
+    
+    .testimonial-area .container .sec-title {
+        position: relative;
+        margin-bottom: 50px;
+        padding-bottom: 15px;
+    }
+    
+    .testimonial-area .container .sec-title:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100px;
+        height: 3px;
+        background: #fff;
+    }
+    
+    .testimonial-area .container .sec-title h2 {
+        font-size: 60px;
+        font-weight: 900;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+    
+    .testimonial-area .container .sec-title p {
+        font-size: 18px;
+        line-height: 28px;
+        color: #fff;
+        text-transform: capitalize;
+    }
+    
+    .testimonial-area .owl-carousel {
+        /* display: flex; */
+        /* gap: 80px; */
+        overflow: hidden;
+        padding: 0 20px;
+        margin: 0 -40px;
+        padding-right: 40px;
+    }
+    
+    .owl-carousel .owl-stage-outer {
+        padding: 30px 50px;
+        margin-left: -35px;
+        width: calc(100% + 100px);
+    }
+    
+    .single-testimonial {
+        border: 7px solid #fff;
+        text-align: center;
+        border-radius: 45px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .single-testimonial p {
+        color: #fff;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 80px;
+        padding-bottom: 30px;
+        position: relative;
+
+    }
+    
+    .client-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        padding-bottom: 50px;
+    }
+    
+    .client-info .client-details h6 {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    
+    .client-info .client-details span {
+        display: inline-block;
+        color: #fff;
+        font-size: 13px;
+    }
+    
+    .client-info .client-pic {
+        padding-right: 15px;
+    }
+    
+    .client-info .client-pic img {
+        width: 100%;
+        border-radius: 50px;
+    }
+    
+    .owl-dots {
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    .owl-dots button {
+        background: #fff !important;
+        width: 15px;
+        height: 15px;
+        border-radius: 26px;
+        margin: 0 5px;
+        transition: 0.3s;
+    }
+    
+    .owl-dots button:active {
+        width: 30px;
+    }
+    
+    .single-testimonial:before {
+        content: '\f10d';
+        position: absolute;
+        font-family: FontAwesome;
+        color: #fff;
+        font-size: 80px;
+        left: -35px;
+        top: -35px;
+        background: black;
+        width: 126px;
+        height: 100px;
+        border-radius: 30%;
+    }
+    
+    .single-testimonial:after {
+        content: '\f10e';
+        position: absolute;
+        font-family: FontAwesome;
+        color: #fff;
+        font-size: 80px;
+        right: -35px;
+        bottom: -35px;
+        background: black;
+        width: 126px;
+        height: 100px;
+        border-radius: 30%;
+    }
+    
+    
+    /* -----------------------------PRICING SECTION STYLES END-------------------------------- */
     
     
     
