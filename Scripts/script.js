@@ -1,112 +1,82 @@
-// Check for user preference in localStorage on page load
-const savedMode = localStorage.getItem('mode');
 const body = document.body;
-const navbar = document.querySelector('.navbar'); // Adjust this selector as necessary
-const modeIcon = document.getElementById('modeIcon');
-const lightStylesheet = document.getElementById('lightModeStylesheet');
+const navbar = document.querySelector('.navbar');
 const darkStylesheet = document.getElementById('darkModeStylesheet');
 
-// Apply saved mode on page load
-if (savedMode) {
-    body.classList.add(savedMode);
-    if (savedMode === 'dark-mode') {
-        navbar.classList.add('dark-mode'); // Add dark mode class to navbar
-        modeIcon.classList.remove('fa-moon');
-        modeIcon.classList.add('fa-sun');
-        lightStylesheet.disabled = true;
-        darkStylesheet.disabled = false;
-    } else {
-        // Ensure light mode styles are enabled
-        lightStylesheet.disabled = false;
-        darkStylesheet.disabled = true;
-    }
-}
+body.classList.add('dark-mode');
+navbar.classList.add('dark-mode');
+darkStylesheet.disabled = false;
 
-// Toggle Light/Dark Mode for the entire website
-// Toggle Light/Dark Mode for the entire website
-function toggleMode() {
-    const isLightMode = body.classList.contains('light-mode');
+const banner = document.getElementById('banner');
+const bannerHeight = banner ? banner.offsetHeight : 0;
 
-    if (isLightMode) {
-        // Switch to dark mode
-        body.classList.replace('light-mode', 'dark-mode'); // Use replace for better performance
-        navbar.classList.add('dark-mode');
-        modeIcon.classList.replace('fa-moon', 'fa-sun'); // Change icon to sun
-        lightStylesheet.disabled = true;
-        darkStylesheet.disabled = false;
-        // Store the user's preference in localStorage
-        localStorage.setItem('mode', 'dark-mode');
-    } else {
-        // Switch to light mode
-        body.classList.replace('dark-mode', 'light-mode'); // Use replace for better performance
-        navbar.classList.remove('dark-mode');
-        modeIcon.classList.replace('fa-sun', 'fa-moon'); // Change icon to moon
-        lightStylesheet.disabled = false;
-        darkStylesheet.disabled = true;
-        // Store the user's preference in localStorage
-        localStorage.setItem('mode', 'light-mode');
-    }
-}
-
-
-// Attach the toggle function to the mode icon click event
-modeIcon.addEventListener('click', toggleMode);
-
-// Select the navbar element
-const banner = document.getElementById('banner'); // Make sure to define 'banner' here
-const bannerHeight = banner ? banner.offsetHeight : 0; // Initialize bannerHeight
-
-// Define the callback function to be executed on scroll
 const onScroll = () => {
-    // Change navbar background color on scroll
     if (window.scrollY > bannerHeight) {
-        navbar.style.backgroundColor = '#333'; // Dark background
-        navbar.style.color = '#fff'; // White text
+        navbar.style.backgroundColor = '#333';
+        navbar.style.color = '#fff';
     } else {
-        navbar.style.backgroundColor = 'transparent'; // Reset to transparent
-        navbar.style.color = '#000'; // Reset to black text
+        navbar.style.backgroundColor = 'transparent';
+        navbar.style.color = '#000';
     }
 };
 
-// Add the scroll event listener to the window
 window.addEventListener('scroll', onScroll);
 
-// Slide show functionality
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
 
-// Function to show the current slide
 function showSlide(index) {
     slides.forEach((slide) => {
         slide.classList.remove('active');
-        slide.style.opacity = '0'; // Hide all slides
-        slide.style.position = 'absolute'; // Ensure hidden slides stay in place
+        slide.style.opacity = '0';
+        slide.style.position = 'absolute';
     });
 
     slides[index].classList.add('active');
-    slides[index].style.opacity = '1'; // Show the active slide
-    slides[index].style.position = 'relative'; // Ensure active slide is properly displayed
+    slides[index].style.opacity = '1';
+    slides[index].style.position = 'relative';
 }
 
-// Next slide
 function nextSlide() {
     currentSlide = (currentSlide + 1) % totalSlides;
     showSlide(currentSlide);
 }
 
-// Previous slide
 function prevSlide() {
     currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
     showSlide(currentSlide);
 }
 
-// Auto-slide every 5 seconds
 setInterval(nextSlide, 5000);
 
-// Initialize the first slide
 showSlide(currentSlide);
 
-// Event listeners for navigation buttons
-document.querySelector('.next').addEventListener('click', nextSlide);
-document.querySelector('.prev').addEventListener('click', prevSlide);
+// Function to show the cookie banner after a delay
+function showCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    banner.classList.remove('hidden'); // Show the banner
+    banner.classList.add('show'); // Add the show class for animation
+}
+
+// Function to handle cookie acceptance
+function acceptCookies() {
+    console.log('Cookies accepted');
+    document.getElementById('cookie-banner').style.display = 'none';
+}
+
+// Function to handle cookie denial
+function denyCookies() {
+    console.log('Cookies denied');
+    document.getElementById('cookie-banner').style.display = 'none';
+}
+
+// Use setTimeout to delay the banner appearance
+setTimeout(showCookieBanner, 3500); // Show the banner after 2 seconds
+
+// Event listeners for buttons
+document.getElementById('accept-cookies').addEventListener('click', acceptCookies);
+document.getElementById('deny-cookies').addEventListener('click', denyCookies);
+
+
+// document.querySelector('.next').addEventListener('click', nextSlide);
+// document.querySelector('.prev').addEventListener('click', prevSlide);

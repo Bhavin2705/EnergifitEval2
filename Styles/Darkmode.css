@@ -1,13 +1,10 @@
 /* Dark Mode Styles */
 
 body.dark-mode {
-  background-color: #0D1B2A; /* Dark blue background */
+  background-color: transparent; /* Dark blue background */
   color: #ffffff;
 }
 
-body.dark-mode .navbar {
-  background-color: rgba(0, 27, 42, 0.9); /* Dark blue navbar */
-}
 
 body.dark-mode .nav-link {
   color: #8ecae6; /* Light blue text in dark mode */
@@ -28,7 +25,6 @@ body.dark-mode .content p {
 }
 
 .navbar-dark-mode {
-  background-color: rgba(0, 27, 42, 0.9) !important; /* Dark blue background */
   color: #ffffff !important;
 }
 
