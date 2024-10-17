@@ -1,3 +1,9 @@
+
+
+function redirectToLogin() {
+    window.location.href = 'login.html'; // Change this to your actual login page URL
+}
+
 const body = document.body;
 const navbar = document.querySelector('.navbar');
 const darkStylesheet = document.getElementById('darkModeStylesheet');
@@ -78,5 +84,52 @@ document.getElementById('accept-cookies').addEventListener('click', acceptCookie
 document.getElementById('deny-cookies').addEventListener('click', denyCookies);
 
 
+
+document.getElementById('signup-link').onclick = function() {
+    document.getElementById('login-signup-page').classList.remove('hidden');
+    document.getElementById('login-dropdown').classList.add('hidden');
+};
+
+document.getElementById('login-link').onclick = function() {
+    document.getElementById('login-signup-page').classList.remove('hidden');
+    document.getElementById('login-dropdown').classList.add('hidden');
+};
+
+document.getElementById('signup-btn').onclick = function() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username && password) {
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+        alert('You are registered! Now you can log in.');
+        document.getElementById('login-signup-page').classList.add('hidden');
+        document.getElementById('login-dropdown').classList.remove('hidden');
+    }
+};
+
+document.getElementById('login-btn').onclick = function() {
+    const loginUsername = document.getElementById('login-username').value;
+    const loginPassword = document.getElementById('login-password').value;
+
+    const storedUsername = localStorage.getItem('username');
+    const storedPassword = localStorage.getItem('password');
+
+    if (loginUsername === storedUsername && loginPassword === storedPassword) {
+        alert('Login successful!');
+        document.getElementById('login-signup-page').classList.add('hidden');
+        document.getElementById('user-icon').classList.remove('hidden');
+        document.getElementById('login-dropdown').classList.add('hidden');
+    } else {
+        alert('Invalid username or password.');
+    }
+};
+
+// Logout functionality
+document.getElementById('logout').onclick = function() {
+    document.getElementById('user-icon').classList.add('hidden');
+    document.getElementById('login-dropdown').classList.remove('hidden');
+    alert('You have logged out.');
+};
 // document.querySelector('.next').addEventListener('click', nextSlide);
 // document.querySelector('.prev').addEventListener('click', prevSlide);

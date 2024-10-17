@@ -177,7 +177,7 @@ body.dark-mode .content p {
 
 .classes-slider .classes-item {
   background: #3C414C; /* Dark card background */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); /* Reduced shadow */
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.); /* Reduced shadow */
 }
 
 .classes-item h4 a {

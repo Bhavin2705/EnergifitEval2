@@ -67,33 +67,10 @@ body {
     width: 100%;
 }
 
-/* Mode Toggle Button */
-.btn.mode-toggle {
-    color: white;
-    background-color: transparent;
-    border: none;
-    font-size: 24px;
-    transition: color 0.3s;
-}
 
-.btn.mode-toggle:hover {
-    color: orange;
-}
-
-#modeIcon {
-    transition: color 0.3s;
-}
-
-body.dark-mode #modeIcon {
-    color: white;
-}
-
-body.light-mode #modeIcon {
-    color: orange;
-}
 
 /* Dropdown Menu Styles */
-.dropdown-toggle {
+#login-dropdown .btn {
     background: none;
     border: 2px solid #00A8CC;
     color: #00A8CC;
@@ -735,7 +712,7 @@ p {
     }
     
     .owl-dots button {
-        background: #fff !important;
+        background: #fff;
         width: 15px;
         height: 15px;
         border-radius: 26px;

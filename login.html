@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="sign-up">
+            <form id="signUpForm">
+                <h1>Create Account</h1>
+                <div class="icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <span>or use email for registration</span>
+                <input type="text" placeholder="Name" id="name" required>
+                <input type="email" placeholder="Email" id="email" required>
+                <input type="date" placeholder="Date of Birth" id="dob" required>
+                <select id="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <input type="password" placeholder="Password" id="password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        
+        <div class="sign-in">
+            <form id="signInForm">
+               <h1>Sign In</h1> 
+               <div class="icons">
+                <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+               </div>
+               <span>or use email and password</span>
+               <input type="email" placeholder="Email" required>
+               <input type="password" placeholder="Password" required>
+               <a href="#">Forgot password?</a>
+               <button type="submit">Sign In</button>
+            </form>
+        </div>
+        
+        <div class="toogle-container">
+            <div class="toogle">
+                <div class="toogle-panel toogle-left">
+                    <h1>Welcome User!</h1>
+                    <p>Already have an account? Sign in</p>
+                    <button id="login-link">Sign In</button>
+                </div>
+                <div class="toogle-panel toogle-right">
+                    <h1>Hello, User!</h1>
+                    <p>If you don't have an account</p>
+                    <button id="signup-link">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./login.js"></script>
+</body>
+</html>
