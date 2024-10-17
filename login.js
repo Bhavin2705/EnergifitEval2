@@ -1,17 +1,3 @@
-// const container = document.getElementById('container');
-// const registerbtn = document.getElementById('register');
-// const loginbtn = document.getElementById('login');
-
-// registerbtn.addEventListener('click',() =>{
-//     container.classList.add("active");
-// });
-
-// loginbtn.addEventListener("click",() => {
-//     container.classList.remove("active");
-// });
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("container");
     const signUpForm = document.getElementById("signUpForm");
@@ -22,18 +8,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginLink = document.getElementById('login-link');
 
     signupLink.onclick = function(event) {
-        event.preventDefault(); // Prevent the default link behavior
-        container.classList.add("active"); // Show the sign-up form
+        event.preventDefault();
+        container.classList.add("active");
     };
 
     loginLink.onclick = function(event) {
-        event.preventDefault(); // Prevent the default link behavior
-        container.classList.remove("active"); // Show the sign-in form
+        event.preventDefault();
+        container.classList.remove("active");
     };
 
     // Handle Sign Up
     signUpForm.addEventListener("submit", (event) => {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
         const name = signUpForm.querySelector("#name").value;
         const email = signUpForm.querySelector("#email").value;
         const password = signUpForm.querySelector("#password").value;
@@ -46,44 +32,34 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Store user data in local storage
-        const userData = {
-            name,
-            email,
-            password,
-            gender // Save gender as part of the user data
-        };
-
-        // Save the user data in local storage with the email as the key
+        const userData = { name, email, password, gender };
         localStorage.setItem(email, JSON.stringify(userData));
 
-        // Clear the form fields
         signUpForm.reset();
         alert("Registration successful! You can now sign in.");
-        container.classList.remove("active"); // Switch to sign in after registration
+        container.classList.remove("active");
     });
 
     // Handle Sign In
     signInForm.addEventListener("submit", (event) => {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
         const email = signInForm.querySelector("input[type='email']").value;
         const password = signInForm.querySelector("input[type='password']").value;
 
-        // Retrieve the user data from local storage
         const storedUserData = localStorage.getItem(email);
 
         if (storedUserData) {
             const { password: storedPassword, gender } = JSON.parse(storedUserData);
 
-            // Check if the password matches
             if (password === storedPassword) {
                 alert("Sign in successful! Welcome back.");
 
                 // Save login status and gender in localStorage
                 localStorage.setItem("isLoggedIn", "true");
                 localStorage.setItem("userGender", gender);
-
-                // Redirect to the desired webpage
-                window.location.href = "index.html"; // Change this to your target page URL
+                
+                // Redirect to index.html after successful login
+                window.location.href = "index.html"; // Redirect to the main page
             } else {
                 alert("Incorrect password. Please try again.");
             }

@@ -85,51 +85,38 @@ document.getElementById('deny-cookies').addEventListener('click', denyCookies);
 
 
 
-document.getElementById('signup-link').onclick = function() {
-    document.getElementById('login-signup-page').classList.remove('hidden');
-    document.getElementById('login-dropdown').classList.add('hidden');
+// Assume this function runs after successful login
+function showUserIcon(gender) {
+    const userIcon = document.getElementById('userIcon');
+    userIcon.style.display = 'block';
+
+    const genderIcon = document.getElementById('genderIcon');
+    genderIcon.textContent = gender === 'male' ? '♂' : '♀'; // Set icon based on gender
+}
+
+// Logout functionality
+document.getElementById('logout').onclick = function() {
+    localStorage.removeItem('username'); // Clear stored username
+    localStorage.removeItem('password'); // Clear stored password
+    document.getElementById('userIcon').style.display = 'none'; // Hide user icon
+    alert('You have logged out.');
 };
 
-document.getElementById('login-link').onclick = function() {
-    document.getElementById('login-signup-page').classList.remove('hidden');
-    document.getElementById('login-dropdown').classList.add('hidden');
-};
+// Example login logic (to be integrated into your login handling)
+document.getElementById('signInForm').onsubmit = function(e) {
+    e.preventDefault(); // Prevent default form submission
 
-document.getElementById('signup-btn').onclick = function() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    if (username && password) {
-        localStorage.setItem('username', username);
-        localStorage.setItem('password', password);
-        alert('You are registered! Now you can log in.');
-        document.getElementById('login-signup-page').classList.add('hidden');
-        document.getElementById('login-dropdown').classList.remove('hidden');
-    }
-};
-
-document.getElementById('login-btn').onclick = function() {
-    const loginUsername = document.getElementById('login-username').value;
-    const loginPassword = document.getElementById('login-password').value;
+    const email = this.querySelector('input[type="email"]').value;
+    const password = this.querySelector('input[type="password"]').value;
 
     const storedUsername = localStorage.getItem('username');
     const storedPassword = localStorage.getItem('password');
 
-    if (loginUsername === storedUsername && loginPassword === storedPassword) {
+    if (email === storedUsername && password === storedPassword) {
         alert('Login successful!');
-        document.getElementById('login-signup-page').classList.add('hidden');
-        document.getElementById('user-icon').classList.remove('hidden');
-        document.getElementById('login-dropdown').classList.add('hidden');
+        showUserIcon('male'); // Change this to dynamically retrieve user gender
+        document.querySelector('.sign-in').style.display = 'none'; // Optionally hide sign-in form
     } else {
         alert('Invalid username or password.');
     }
 };
-
-// Logout functionality
-document.getElementById('logout').onclick = function() {
-    document.getElementById('user-icon').classList.add('hidden');
-    document.getElementById('login-dropdown').classList.remove('hidden');
-    alert('You have logged out.');
-};
-// document.querySelector('.next').addEventListener('click', nextSlide);
-// document.querySelector('.prev').addEventListener('click', prevSlide);
