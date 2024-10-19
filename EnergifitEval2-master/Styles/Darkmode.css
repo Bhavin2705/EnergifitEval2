@@ -1,0 +1,306 @@
+/* Dark Mode Styles */
+
+body.dark-mode {
+  background-color: transparent; /* Dark blue background */
+  color: #ffffff;
+}
+
+
+body.dark-mode .nav-link {
+  color: #8ecae6; /* Light blue text in dark mode */
+}
+
+body.dark-mode .content h2,
+body.dark-mode .content p {
+  color: #ffffff;
+}
+
+/* Keep logo white for dark mode */
+.white-logo {
+  filter: brightness(0) invert(1); /* Inverts the logo to appear white */
+}
+
+.banner-slider .navbar-brand img {
+  filter: brightness(0) invert(1); /* Ensures the logo appears white */
+}
+
+.navbar-dark-mode {
+  color: #ffffff !important;
+}
+
+.navbar-dark-mode .nav-link {
+  color: #8ecae6 !important; /* Light blue text in dark mode */
+}
+
+/* Overriding the color for logo in dark-mode for banners */
+.navbar-dark-mode .navbar-brand img.white-logo {
+  filter: brightness(0) invert(1); /* Logo is inverted (white) */
+}
+
+/* About Section */
+.about-section {
+  padding: 80px 0;
+  background-color: #1e1e1e; /* Dark background for contrast */
+}
+
+.section-title {
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-title img {
+  width: 100px;
+  margin-bottom: 25px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  color: #ffffff; /* Darker text for stronger contrast */
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding-bottom: 5px; /* Add padding to create space between text and underline */
+}
+
+.section-title h2:after {
+  content: '';
+  width: 100%; /* Adjust width to cover the entire text */
+  height: 4px;
+  background-color: #ff5a00; /* Accent color underline for the header */
+  position: absolute;
+  bottom: 0;
+  left: 0; /* Start underline from the left */
+}
+
+
+.section-title p {
+  font-size: 20px;
+  color: #cccccc; /* Softer grey for supporting text */
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Reduced shadow for About section images */
+.about-img img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.05); /* Light shadow */
+}
+
+.about-item {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.ai-icon img {
+  width: 60px;
+  margin-right: 20px;
+  transition: transform 0.3s ease;
+}
+
+.about-item:hover .ai-icon img {
+  transform: scale(1.1);
+}
+
+.ai-text h4 {
+  font-size: 26px;
+  color: #ffffff; /* White text for clear readability */
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.ai-text p {
+  font-size: 18px;
+  color: #cccccc; /* Supporting text color */
+  line-height: 1.7;
+}
+
+/* Site button styles */
+.site-btn {
+  display: inline-block;
+  padding: 15px 35px;
+  background-image: linear-gradient(135deg, #ff5a00, #ff7a33);
+  color: #ffffff;
+  font-size: 18px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1); /* Softer highlight effect */
+  transition: left 0.5s ease;
+}
+
+.site-btn:hover:before {
+  left: 0;
+}
+
+.site-btn:hover {
+  background-image: linear-gradient(135deg, #e04d00, #ff6a22);
+  box-shadow: 0 8px 15px rgba(255, 255, 255, 0.08); /* Reduced shadow */
+  transform: translateY(-5px);
+}
+
+.site-btn:active {
+  transform: translateY(-2px);
+}
+
+/* Dark Mode for Programs Section */
+.classes-section {
+  background: #2A2D34; /* Dark grey background for dark mode */
+}
+
+.section-title h2 {
+  color: #ffffff; /* White text color for section titles */
+}
+
+.section-title p {
+  color: #cccccc; /* Softer grey for subtitle */
+}
+
+.classes-slider .classes-item {
+  background: #3C414C; /* Dark card background */
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.); /* Reduced shadow */
+}
+
+.classes-item h4 a {
+  color: #ffffff; /* White text color for class titles */
+}
+
+.classes-item .ci-metas {
+  color: #b0b3b8; /* Lighter grey for meta text */
+}
+
+.classes-item .ci-metas i {
+  color: #8ecae6; /* Light blue icon color */
+}
+
+.classes-item p {
+  color: #cccccc; /* Softer grey for descriptions */
+}
+
+.classes-item .ci-author p {
+  color: #ff5a00; /* Orange text for author roles */
+}
+
+/* Trainers Section */
+.trainers-section {
+  background-color: #1a1a1a; /* Dark Grey Background Color for Trainers Section */
+}
+
+.trainers-title {
+  color: #ffffff; /* Title Color */
+}
+
+.trainer-card {
+  background-color: #2c2c2c; /* Dark Grey Background for Trainer Cards */
+  border: 1px solid #444; /* Border Color */
+}
+
+.trainer-card:hover {
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05); /* Reduced shadow */
+}
+
+.trainer-name {
+  color: #ffffff; /* Trainer Name Color */
+}
+
+.trainer-specialty {
+  color: #cccccc; /* Specialty Color (Light Grey) */
+}
+
+/* Dark mode styles for social media icons */
+.trainers-section .social-icons a {
+  color: #ffffff; /* White color for the icons */
+  font-size: 24px; /* Adjust size as per your preference */
+  margin: 0 10px; /* Space between icons */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.trainers-section .social-icons a:hover {
+  color: #ff5a00; /* Accent color for hover effect */
+  transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+/* Ensure alignment and positioning */
+.trainers-section .social-icons {
+  text-align: center; /* Center icons in the container */
+  margin-top: 15px; /* Adjust space above the icons */
+}
+
+/* Pricing Section */
+.pricing-section {
+  background-color: #0D0D0D; /* Pricing Section Background */
+}
+
+.plan-card {
+  background: #1C1C1C; /* Plan Card Background */
+  border: 1px solid #333; /* Plan Card Border Color */
+}
+
+/* Contact Us Section */
+#contact-us {
+  background-color: #1A1A1A; /* Contact Us Section Background */
+}
+
+.contact-form {
+  background-color: #1C1C1C; /* Contact Form Background */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Reduced shadow for contact form */
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #2E2E2E; /* Input and Textarea Background */
+  border: 1px solid #444; /* Input Border Color */
+  color: #ffffff; /* Input and Textarea Text Color */
+}
+
+/* Text Colors */
+.pricing-title {
+  color: #ffffff; /* Pricing Title Color */
+}
+
+.plan-title {
+  color: #ffffff; /* Plan Title Color */
+}
+
+.plan-features li {
+  color: #ffffff; /* Plan Features Text Color */
+}
+
+.contact-form h2 {
+  color: #FF6F61; /* Header Color */
+}
+
+/* Map Styles */
+.contact-map {
+  border: none; /* Remove any default border */
+  border-radius: 15px; /* Rounded Corners for Map */
+  height: 350px; /* Map Height */
+}
+
+/* Ensure media queries for responsiveness */
+@media (max-width: 768px) {
+  .trainer-card,
+  .plan-card {
+      margin: 10px 0; /* Adjust margin for mobile */
+  }
+}
+

@@ -10,21 +10,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-
     <title>Energifit</title>
 </head>
 
 <body>
-
     <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-light " id="navbar"> <!-- Initial class for navbar -->
-        <div class="container">
+    <nav class="navbar fixed-top navbar-light" id="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
             <a class="navbar-brand" href="./">
                 <img src="./assets/image.png" alt="Energifit" class="logo" id="logo">
             </a>
-            <div class="navbar-menu">
+            <div class="navbar-menu d-flex justify-content-center">
                 <a class="nav-link" href="#banner">Home</a>
                 <a class="nav-link" href="#about">About</a>
                 <a class="nav-link" href="#programs">Programs</a>
@@ -33,13 +30,28 @@
                 <a class="nav-link" href="#contact-us">Contact Us</a>
             </div>
 
-            <div class="dropdown" id="login-dropdown">
-                <button class="btn" type="button" id="registerNow" data-bs-toggle="dropdown" aria-expanded="false" onclick="redirectToLogin()">
+            <div class="d-flex align-items-center" id="user-controls">
+                <button class="btn register-btn" id="registerNow" onclick="redirectToLogin()">
                     Register Now
                 </button>
+
+                <div class="user-icon-container ms-3" id="userIcon" style="display:none;">
+                    <span id="genderIcon"><i class="fas fa-user-circle"></i></span>
+                    <button class="btn dropdown-toggle" type="button" aria-expanded="false">
+                        My Account
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">My Profile</a></li>
+                        <li><a class="dropdown-item" id="logout" href="#">Log Out</a></li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </nav>
+
+
+
 
     <!-- Banner Slider -->
     <div class="banner" id="banner"> <!-- Add id="banner" here -->
@@ -70,7 +82,7 @@
         </div>
     </div>
 
-    
+
 
 
     <!-- About Us -->
@@ -529,7 +541,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-        
+        <script src="./Scripts/script.js"></script>
+
         <script>
             $(document).ready(function () {
                 $('.classes-slider').owlCarousel({
@@ -552,7 +565,7 @@
                         }
                     }
                 });
-                
+
                 // Initialization for the trainers section
                 $('.trainers-slider').owlCarousel({
                     items: 3, // Number of items to show
@@ -575,8 +588,8 @@
                     }
                 });
             });
-            
-            
+
+
             $(document).ready(function () {
                 $('.testimonial-content').owlCarousel({
                     loop: true,
@@ -597,8 +610,8 @@
                 })
             })
         </script>
-        <script src="./Scripts/script.js"></script>
 
-    </body>
+        </script>
+</body>
 
 </html>

@@ -1,9 +1,9 @@
-// Redirect to Login Page
+
+
 function redirectToLogin() {
-    window.location.href = './login.html'; // Replace with your actual login page URL
+    window.location.href = 'login.html'; // Change this to your actual login page URL
 }
 
-// Apply Dark Mode (assuming dark mode styles are defined)
 const body = document.body;
 const navbar = document.querySelector('.navbar');
 const darkStylesheet = document.getElementById('darkModeStylesheet');
@@ -12,7 +12,6 @@ body.classList.add('dark-mode');
 navbar.classList.add('dark-mode');
 darkStylesheet.disabled = false;
 
-// Banner scroll effect
 const banner = document.getElementById('banner');
 const bannerHeight = banner ? banner.offsetHeight : 0;
 
@@ -25,9 +24,9 @@ const onScroll = () => {
         navbar.style.color = '#000';
     }
 };
+
 window.addEventListener('scroll', onScroll);
 
-// Carousel logic
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
@@ -53,51 +52,71 @@ function prevSlide() {
     currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
     showSlide(currentSlide);
 }
+
 setInterval(nextSlide, 5000);
+
 showSlide(currentSlide);
 
-// Cookie Banner
+// Function to show the cookie banner after a delay
 function showCookieBanner() {
     const banner = document.getElementById('cookie-banner');
-    banner.classList.remove('hidden');
-    banner.classList.add('show');
+    banner.classList.remove('hidden'); // Show the banner
+    banner.classList.add('show'); // Add the show class for animation
 }
 
+// Function to handle cookie acceptance
 function acceptCookies() {
     console.log('Cookies accepted');
     document.getElementById('cookie-banner').style.display = 'none';
 }
 
+// Function to handle cookie denial
 function denyCookies() {
     console.log('Cookies denied');
     document.getElementById('cookie-banner').style.display = 'none';
 }
-setTimeout(showCookieBanner, 3500);
 
+// Use setTimeout to delay the banner appearance
+setTimeout(showCookieBanner, 3500); // Show the banner after 2 seconds
+
+// Event listeners for buttons
 document.getElementById('accept-cookies').addEventListener('click', acceptCookies);
 document.getElementById('deny-cookies').addEventListener('click', denyCookies);
 
+
+
+// Assume this function runs after successful login
 function showUserIcon(gender) {
     const userIcon = document.getElementById('userIcon');
+    userIcon.style.display = 'block';
+
     const genderIcon = document.getElementById('genderIcon');
-    const registerNowButton = document.getElementById('registerNow');
-
-    if (gender === 'male') {
-        genderIcon.src = './assets/male-icon.png';
-    } else if (gender === 'female') {
-        genderIcon.src = './assets/female-icon.png';
-    } else {
-        genderIcon.src = './assets/default-icon.png';
-    }
-
-    userIcon.style.display = 'flex';
-    registerNowButton.style.display = 'none';
+    genderIcon.textContent = gender === 'male' ? '♂' : '♀'; // Set icon based on gender
 }
 
-document.getElementById('logout').onclick = function () {
-    localStorage.removeItem('username');
-    localStorage.removeItem('password');
-    document.getElementById('userIcon').style.display = 'none';
-    document.getElementById('registerNow').style.display = 'block';
+// Logout functionality
+document.getElementById('logout').onclick = function() {
+    localStorage.removeItem('username'); // Clear stored username
+    localStorage.removeItem('password'); // Clear stored password
+    document.getElementById('userIcon').style.display = 'none'; // Hide user icon
     alert('You have logged out.');
+};
+
+// Example login logic (to be integrated into your login handling)
+document.getElementById('signInForm').onsubmit = function(e) {
+    e.preventDefault(); // Prevent default form submission
+
+    const email = this.querySelector('input[type="email"]').value;
+    const password = this.querySelector('input[type="password"]').value;
+
+    const storedUsername = localStorage.getItem('username');
+    const storedPassword = localStorage.getItem('password');
+
+    if (email === storedUsername && password === storedPassword) {
+        alert('Login successful!');
+        showUserIcon('male'); // Change this to dynamically retrieve user gender
+        document.querySelector('.sign-in').style.display = 'none'; // Optionally hide sign-in form
+    } else {
+        alert('Invalid username or password.');
+    }
 };

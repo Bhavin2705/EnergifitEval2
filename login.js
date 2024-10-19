@@ -41,33 +41,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Handle Sign In
-    signInForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const email = signInForm.querySelector("input[type='email']").value;
-        const password = signInForm.querySelector("input[type='password']").value;
+    if (signInForm) {
+        signInForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const email = signInForm.querySelector("input[type='email']").value;
+            const password = signInForm.querySelector("input[type='password']").value;
 
-        const storedUserData = localStorage.getItem(email);
+            const storedUserData = localStorage.getItem(email);
 
-        if (storedUserData) {
-            const { password: storedPassword, gender } = JSON.parse(storedUserData);
+            if (storedUserData) {
+                const { password: storedPassword, gender, name } = JSON.parse(storedUserData);
 
-            if (password === storedPassword) {
-                alert("Sign in successful! Welcome back.");
+                if (password === storedPassword) {
+                    alert("Sign in successful! Welcome back.");
 
-                // Save login status and gender in localStorage
-                localStorage.setItem("isLoggedIn", "true");
-                localStorage.setItem("userGender", gender);
-                
-                // Redirect to index.html after successful login
-                window.location.href = "index.html"; // Redirect to the main page
+                    // Show the user icon with gender and name
+                    showUserIcon(gender, name);
+                    
+                    // Save login status in localStorage
+                    localStorage.setItem("isLoggedIn", "true");
+                    localStorage.setItem("userGender", gender);
+                    localStorage.setItem("userName", name);
+                    
+                    // Redirect to the main page after a brief delay to show the icon
+                    setTimeout(() => {
+                        window.location.href = "index.html"; // Adjust to your home page path
+                    }, 500); // Optional delay for the alert to show
+                } else {
+                    alert("Incorrect password. Please try again.");
+                }
             } else {
-                alert("Incorrect password. Please try again.");
+                alert("No account found with this email. Please register.");
             }
-        } else {
-            alert("No account found with this email. Please register.");
-        }
 
-        // Clear the form fields
-        signInForm.reset();
-    });
+            // Clear the form fields
+            signInForm.reset();
+        });
+    } else {
+        console.error("signInForm not found in the DOM.");
+    }
 });
+
+// Function to show the user icon based on gender
+function showUserIcon(gender, name) {
+    const userIcon = document.getElementById('userIcon');
+    const genderIcon = document.getElementById('genderIcon');
+    const userName = document.getElementById('userName'); // Get userName element
+
+    if (userIcon && genderIcon && userName) {
+        userIcon.style.display = 'flex'; // Show the user icon
+        genderIcon.textContent = gender === 'male' ? '♂️' : '♀️'; // Set gender icon
+        userName.textContent = name; // Set user name
+    } else {
+        console.error("User icon or gender icon element not found.");
+    }
+}

@@ -12,29 +12,21 @@ body {
 
 /* -----------------------NAVBAR START------------------------------ */
 .navbar {
-    padding: 15px 15px;
-    box-shadow: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: transparent; 
-    transition: background-color 0.3s ease; 
+    padding: 15px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
 }
 
 .navbar-brand .logo {
     width: 200px;
     height: 70px;
-    padding-top: 20px;
-    margin-bottom: -10px;
-    padding-left: -30px;
-    margin-right: 100px;
 }
 
 .navbar-menu {
     display: flex;
     justify-content: center;
-    flex-grow: 1;
     gap: 40px;
+    flex-grow: 1;
 }
 
 .nav-link {
@@ -67,11 +59,14 @@ body {
     width: 100%;
 }
 
+/* User Control Styles */
+#user-controls {
+    display: flex; /* Flex display */
+    align-items: center; /* Center items vertically */
+    gap: 15px; /* Space between items */
+}
 
-
-/* Dropdown Menu Styles */
-
-#login-dropdown .btn {
+.register-btn {
     background: none;
     border: 2px solid #00A8CC;
     color: #00A8CC;
@@ -79,58 +74,63 @@ body {
     border-radius: 5px;
     font-weight: 600;
     transition: all 0.3s ease;
-    position: relative;
 }
 
-.dropdown-toggle:hover {
+.register-btn:hover {
     background-color: #FF6F61;
     color: #ffffff;
     border-color: #FF6F61;
 }
+/* Ensure proper positioning for dropdown */
+.user-icon-container {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align items vertically centered */
+    position: relative; /* Ensure the dropdown aligns correctly */
+    color: white;
+}
 
+.dropdown-toggle {
+    background: none; /* No background for the button */
+    border: none; /* No border */
+    color: #00A8CC; /* Button text color */
+    font-weight: 600; /* Button font weight */
+    cursor: pointer; /* Pointer cursor */
+}
+
+/* Dropdown menu styling */
 .dropdown-menu {
-    display: none;
-    position: absolute;
-    background: #ffffff;
-    border: 1px solid #FF6F61;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    padding: 15px;
-    min-width: 220px;
-    animation: fadeIn 0.3s ease;
+    display: none; /* Initially hidden */
+    position: absolute; /* Absolute positioning */
+    top: 100%; /* Aligns directly below */
+    left: 0; /* Aligns to the left */
+    margin-top: 5px; /* Optional: add a small margin for spacing */
+    background: #ffffff; /* Background color for dropdown */
+    border: 1px solid #FF6F61; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Box shadow */
+    z-index: 10; /* Ensure it appears above other elements */
 }
 
+/* Show the dropdown menu when toggled */
 .dropdown-menu.show {
-    display: block;
+    display: block; /* Show dropdown when toggled */
 }
 
+/* Dropdown item styles */
 .dropdown-item {
-    padding: 12px 15px;
-    color: #333333;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    display: flex;
-    align-items: center;
-    border-radius: 5px;
+    padding: 12px 15px; /* Padding for dropdown items */
+    color: #333333; /* Text color for dropdown items */
+    font-weight: 500; /* Font weight */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
 }
 
 .dropdown-item:hover {
-    background-color: #FF6F61;
-    color: #ffffff;
+    background-color: #FF6F61; /* Background color on hover */
+    color: #ffffff; /* Text color on hover */
 }
 
-.dropdown-item i {
-    margin-right: 10px;
-    color: #FF6F61;
-    transition: color 0.3s ease;
-}
 
-.dropdown-item:hover i {
-    color: #333;
-    background-color: #FF6F61;
-}
+
 
 
 /* -----------------------NAVBAR END------------------------------ */
