@@ -31,7 +31,7 @@ signUpForm.addEventListener("submit", (event) => {
   }
 
   // Store user data in local storage
-  const userData = { name, email, password, gender };
+  const userData = { name, email, password, gender, loggedIn: false }; // Initialize with loggedIn status
   localStorage.setItem(email, JSON.stringify(userData));
 
   signUpForm.reset();
@@ -41,39 +41,21 @@ signUpForm.addEventListener("submit", (event) => {
 
 // Handle Sign In
 signInForm.addEventListener("submit", (event) => {
-    console.log("hi");
   event.preventDefault();
   const email = signInForm.querySelector("input[type='email']").value;
   const password = signInForm.querySelector("input[type='password']").value;
 
   const storedUserData = localStorage.getItem(email);
-
-  console.log("input", email, password);
-  console.log("stored", storedUserData);
   
-
   if (storedUserData) {
-    const { password: storedPassword, gender, name } = JSON.parse(storedUserData);
+    const userData = JSON.parse(storedUserData);
 
-    if (password === storedPassword) {
+    if (password === userData.password) {
+      // Update user data to mark them as logged in
+      userData.loggedIn = true; // Set loggedIn to true
+      localStorage.setItem(email, JSON.stringify(userData)); // Update the stored data
 
-      // Save login status and gender in localStorage
-      const data = {loggedIn : true};
-      data.email = email;
-      data.gender = gender;
-      data.name = name;
-      data.password = password;
-
-
-      console.log('data' , data);
-
-      const savedData = localStorage.setItem(email, JSON.stringify(data));
-      
-      console.log('savedData' , savedData);
-
-
-
-    //   Redirect to index.html after successful login
+      // Redirect to index.html after successful login
       window.location.href = "index.html"; // Redirect to the main page
       alert("Sign in successful! Welcome back.");
     } else {

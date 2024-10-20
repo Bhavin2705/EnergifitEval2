@@ -1,0 +1,111 @@
+{
+    "male": {
+      "trainers": [
+        {
+          "name": "John Doe",
+          "specialization": "Strength and Conditioning",
+          "image": "path/to/male-trainer1.jpg",
+          "class": "Strength Training",
+          "description": "Expert in strength training and endurance building."
+        },
+        {
+          "name": "Mike Johnson",
+          "specialization": "Cardio and HIIT",
+          "image": "path/to/male-trainer2.jpg",
+          "class": "HIIT Blast",
+          "description": "Focuses on cardio exercises and high-intensity interval training."
+        },
+        {
+          "name": "David Brown",
+          "specialization": "Bodybuilding",
+          "image": "path/to/male-trainer3.jpg",
+          "class": "Bodybuilding Basics",
+          "description": "Bodybuilding coach with years of experience in muscle growth."
+        },
+        {
+          "name": "Chris Evans",
+          "specialization": "Flexibility and Mobility",
+          "image": "path/to/male-trainer4.jpg",
+          "class": "Flexibility Training",
+          "description": "Helps clients improve flexibility and overall body movement."
+        }
+      ],
+      "classes": [
+        {
+          "name": "Strength Training",
+          "schedule": "Monday, Wednesday, Friday",
+          "description": "Build muscle and improve overall body strength."
+        },
+        {
+          "name": "HIIT Blast",
+          "schedule": "Tuesday, Thursday",
+          "description": "High-intensity interval training for fat loss and stamina."
+        },
+        {
+          "name": "Bodybuilding Basics",
+          "schedule": "Monday, Thursday",
+          "description": "Introductory class for building muscle mass."
+        },
+        {
+          "name": "Flexibility Training",
+          "schedule": "Wednesday, Saturday",
+          "description": "Improve flexibility and body control."
+        }
+      ]
+    },
+    "female": {
+      "trainers": [
+        {
+          "name": "Jane Smith",
+          "specialization": "Yoga and Pilates",
+          "image": "path/to/female-trainer1.jpg",
+          "class": "Yoga Flow",
+          "description": "Expert in flexibility, core strength, and mental well-being."
+        },
+        {
+          "name": "Emily Davis",
+          "specialization": "Dance Aerobics",
+          "image": "path/to/female-trainer2.jpg",
+          "class": "Dance Aerobics",
+          "description": "Focuses on fun dance-based workouts for fitness."
+        },
+        {
+          "name": "Sophia Wilson",
+          "specialization": "Functional Training",
+          "image": "path/to/female-trainer3.jpg",
+          "class": "Functional Fitness",
+          "description": "Functional training for improved everyday movements."
+        },
+        {
+          "name": "Olivia Green",
+          "specialization": "Strength and Toning",
+          "image": "path/to/female-trainer4.jpg",
+          "class": "Strength and Toning",
+          "description": "Helps clients gain strength while toning their body."
+        }
+      ],
+      "classes": [
+        {
+          "name": "Yoga Flow",
+          "schedule": "Monday, Wednesday, Friday",
+          "description": "Improve flexibility, balance, and relaxation."
+        },
+        {
+          "name": "Dance Aerobics",
+          "schedule": "Tuesday, Thursday",
+          "description": "Fun and energetic dance workouts to keep you fit."
+        },
+        {
+          "name": "Functional Fitness",
+          "schedule": "Monday, Wednesday",
+          "description": "Improve strength and mobility for everyday activities."
+        },
+        {
+          "name": "Strength and Toning",
+          "schedule": "Thursday, Saturday",
+          "description": "Build strength and tone muscles with targeted exercises."
+        }
+      ]
+    }
+  }
+  

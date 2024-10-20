@@ -1,6 +1,3 @@
-let logoutTimer;
-
-// Function to redirect to the login page
 function redirectToLogin() {
     window.location.href = 'login.html'; // Change this to your actual login page URL
 }
@@ -9,6 +6,7 @@ const body = document.body;
 const navbar = document.querySelector('.navbar');
 const darkStylesheet = document.getElementById('darkModeStylesheet');
 
+// Apply dark mode styles
 body.classList.add('dark-mode');
 navbar.classList.add('dark-mode');
 darkStylesheet.disabled = false;
@@ -18,6 +16,15 @@ const bannerHeight = banner ? banner.offsetHeight : 0;
 
 const userIcon = document.getElementById("userIcon");
 
+// Function to update login status in local storage
+function updateUserLoginStatus(email, status) {
+    if (localStorage.getItem(email)) { // Directly check if the email exists in local storage
+        let userData = JSON.parse(localStorage.getItem(email));
+        userData.loggedIn = status; // Set loggedIn flag
+        localStorage.setItem(email, JSON.stringify(userData)); // Update localStorage
+    }
+}
+
 // Function to check if user is logged in and show/hide UI elements accordingly
 function checkUserStatus() {
     let userData;
@@ -25,28 +32,24 @@ function checkUserStatus() {
     // Loop through localStorage to find user data
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        if (key.includes("@gmail.com")) {
+        if (key.includes("@")) { // Check if any email is stored
             userData = JSON.parse(localStorage.getItem(key));
-            break;
+            if (userData.loggedIn) {
+                break;
+            } else {
+                userData = null; // Ensure data is reset if not logged in
+            }
         }
     }
 
-    // If userData is not found or user is not logged in
-    if (!userData || !userData.loggedIn) {
-        console.log("User not logged in or no stored data");
+    // Show/hide elements based on login status
+    if (!userData) {
         document.getElementById('registerNow').style.display = 'block'; // Show register button
         userIcon.style.display = 'none'; // Hide user icon
     } else {
-        // If user is logged in
-        console.log("User logged in");
         document.getElementById('registerNow').style.display = 'none'; // Hide register button
         userIcon.style.display = 'flex'; // Show user icon
-
-        // Start the logout timer
-        startLogoutTimer();
-
-        // Call the function to update content based on gender
-        updateContentBasedOnGender();
+        updateContentBasedOnGender(); // Update content based on gender
     }
 }
 
@@ -54,7 +57,6 @@ function checkUserStatus() {
 function updateContentBasedOnGender() {
     const gender = localStorage.getItem('gender'); // Retrieve gender from local storage
 
-    // JSON data for gender-specific content
     const contentData = {
         male: {
             welcomeMessage: "Welcome to Energifit, gentlemen!",
@@ -68,7 +70,6 @@ function updateContentBasedOnGender() {
         }
     };
 
-    // Update the DOM with the retrieved content
     if (gender && contentData[gender]) {
         document.getElementById('welcome-message').textContent = contentData[gender].welcomeMessage;
 
@@ -83,29 +84,6 @@ function updateContentBasedOnGender() {
         const genderImage = document.getElementById('gender-image');
         genderImage.src = contentData[gender].image;
     }
-}
-
-// Start the logout timer
-function startLogoutTimer() {
-    // Set the timer for 10 minutes (600000 milliseconds)
-    logoutTimer = setTimeout(() => {
-        logout(); // Call the logout function when the timer expires
-    }, 600000); // Change this duration as needed
-}
-
-// Function to log out the user
-function logout() {
-    // Show the register button
-    document.getElementById('registerNow').style.display = 'block';
-
-    // Hide the user icon dropdown
-    document.getElementById('userIcon').style.display = 'none';
-
-    // Clear user-related data (optional)
-    localStorage.removeItem('gender'); // Clear the gender data if necessary
-    // You can also clear any other relevant user data stored in localStorage
-
-    console.log("User logged out automatically due to inactivity.");
 }
 
 // Initial call to check user status
@@ -150,25 +128,22 @@ function prevSlide() {
 }
 
 setInterval(nextSlide, 5000);
-
 showSlide(currentSlide);
 
 // Function to show the cookie banner after a delay
 function showCookieBanner() {
     const banner = document.getElementById('cookie-banner');
-    banner.classList.remove('hidden'); // Show the banner
+    banner.classList.remove('hidden');
     banner.classList.add('show'); // Add the show class for animation
 }
 
 // Function to handle cookie acceptance
 function acceptCookies() {
-    console.log('Cookies accepted');
     document.getElementById('cookie-banner').style.display = 'none';
 }
 
 // Function to handle cookie denial
 function denyCookies() {
-    console.log('Cookies denied');
     document.getElementById('cookie-banner').style.display = 'none';
 }
 
@@ -180,43 +155,31 @@ document.getElementById('accept-cookies').addEventListener('click', acceptCookie
 document.getElementById('deny-cookies').addEventListener('click', denyCookies);
 
 // Simulate login success (call this function after successful login)
-function loginSuccess() {
-    // Hide the register button
-    document.getElementById('registerNow').style.display = 'none';
-
-    // Show the user icon dropdown
-    document.getElementById('userIcon').style.display = 'flex';
-
-    // Start the logout timer
-    startLogoutTimer();
+function loginSuccess(email) {
+    updateUserLoginStatus(email, true); // Update the loggedIn flag
+    checkUserStatus(); // Update UI based on new login status
 }
 
 // Simulate logout functionality
 document.getElementById('logout').addEventListener('click', function(event) {
     event.preventDefault(); // Prevent the default link action
-
-    // Clear the logout timer
-    clearTimeout(logoutTimer);
-
-    // Log the user out
-    logout();
+    updateUserLoginStatus(localStorage.getItem('loggedInEmail'), false); // Update the loggedIn flag
+    document.getElementById('registerNow').style.display = 'block'; // Show register button
+    userIcon.style.display = 'none'; // Hide user icon
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Add event listener to the dropdown toggle button
     const dropdownToggle = document.querySelector('.dropdown-toggle');
-
     if (dropdownToggle) {
         dropdownToggle.addEventListener('click', function (event) {
             event.stopPropagation(); // Prevent event bubbling
-            const dropdownMenu = this.nextElementSibling; // Select the dropdown menu
+            const dropdownMenu = this.nextElementSibling;
             dropdownMenu.classList.toggle('show'); // Toggle the 'show' class
         });
     }
 
-    // Hide dropdown on clicking outside
     window.addEventListener('click', function (event) {
-        if (!event.target.closest('.user-icon-container')) { // Check if click is outside the dropdown
+        if (!event.target.closest('.user-icon-container')) {
             const dropdowns = document.querySelectorAll('.dropdown-menu');
             dropdowns.forEach(dropdown => {
                 dropdown.classList.remove('show');

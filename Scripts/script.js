@@ -77,6 +77,7 @@ setTimeout(showCookieBanner, 3500);
 document.getElementById('accept-cookies').addEventListener('click', acceptCookies);
 document.getElementById('deny-cookies').addEventListener('click', denyCookies);
 
+// Function to Show User Icon Based on Gender
 function showUserIcon(gender) {
     const userIcon = document.getElementById('userIcon');
     const genderIcon = document.getElementById('genderIcon');
@@ -94,10 +95,39 @@ function showUserIcon(gender) {
     registerNowButton.style.display = 'none';
 }
 
+// Check Login Status on Page Load
+document.addEventListener('DOMContentLoaded', function () {
+    const loggedInUser = localStorage.getItem('username'); // Assuming this stores login status
+
+    if (loggedInUser) {
+        // Show the logged-in state (display the user icon, hide 'Register Now')
+        document.getElementById('userIcon').style.display = 'flex';
+        document.getElementById('registerNow').style.display = 'none';
+
+        // Optionally, show the gender icon if stored
+        const gender = localStorage.getItem('gender');
+        showUserIcon(gender);
+    } else {
+        // Show the logged-out state
+        document.getElementById('userIcon').style.display = 'none';
+        document.getElementById('registerNow').style.display = 'block';
+    }
+});
+
+// Logout Function
 document.getElementById('logout').onclick = function () {
+    // Clear all user-related data
     localStorage.removeItem('username');
     localStorage.removeItem('password');
+    localStorage.removeItem('loggedInUser'); // Ensure any other login keys are removed
+    localStorage.removeItem('gender');
+
+    // Hide user-related UI elements and display 'Register Now' button
     document.getElementById('userIcon').style.display = 'none';
     document.getElementById('registerNow').style.display = 'block';
+
+    // Optional: Reload the page to reset any UI
+    location.reload();
+
     alert('You have logged out.');
 };
